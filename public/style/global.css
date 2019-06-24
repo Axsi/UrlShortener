@@ -1,0 +1,49 @@
+body{
+
+}
+
+#site_title{
+    margin-top: 234px;
+    margin-bottom: 40px;
+    font-size: 50px;
+    font-weight: bold;
+}
+
+#url_input{
+    height: 30px;
+    width: 700px;
+    font-size: 18px;
+}
+
+#url_submit{
+    margin-top: 50px;
+    margin-bottom: 20px;
+    height:50px;
+    width: 80px;
+    background-color: darkred;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+#content_area{
+
+}
+
+#submission_area{
+    border-bottom: 1px solid #cccccc;
+}
+
+#redirect_button{
+    margin-top: 120px;
+    background-color: #ff6347;
+    width: 350px;
+    height: 70px;
+    border: none;
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    border-radius: 12px;
+}
