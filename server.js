@@ -41,7 +41,8 @@ app.post('/shortenUrl', function(req, res){
          return res.status(400).send({error: 'invalid URL'});
     }
 
-    //dns check to see if site is active buy checking the hostname that is included in the newURL object
+    //dns check to see if site is active by checking the hostname that is included in the newURL object
+    //to check if dns includes hostname
     dns.lookup(newURL.hostname, function(err){
         if(err){
             console.log("Error: Address not found");
@@ -61,6 +62,7 @@ app.post('/shortenUrl', function(req, res){
 app.post('/getUrl', function(req, res){
     console.log("WITHIN /getURL");
     console.log(req.body);
+    //we search the database for a row with the given short_id
     collection.findOne(req.body)
         .then(function (r){
             // console.log(r);
@@ -82,7 +84,7 @@ function shortUrl(newURL){
     //first check to make sure the url doesnt already exists in the database, if it does update it if it doesnt create a new row
     let href = newURL.href;
 
-    //return this so you can have access to short_id
+    //return this so you can have access to short_id. With $setOnInsert, if the update operation does not result in an insert, it does nothing
     return collection.findOneAndUpdate({url: href},{$setOnInsert: {url: href, short_id: nanoid(7)}},
         {upsert: true, returnOriginal: false});
 }
